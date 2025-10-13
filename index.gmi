@@ -1,0 +1,6 @@
+# Bienvenue sur mon serveur Gemini 🌒
+
+Bienvenue sur ma capsule Gemini locale.
+
+=> about.gmi À propos
+=> gemini://geminiprotocol.net Le site officiel du projet Gemini

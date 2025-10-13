@@ -1,0 +1,5 @@
+# À propos
+
+Ce serveur est un projet de test Gemini hébergé localement.
+
+=> index.gmi Retour à l'accueil
