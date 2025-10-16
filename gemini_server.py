@@ -6,6 +6,8 @@ import random
 CERT_FILE = 'cert.pem'
 KEY_FILE = 'key.pem'
 HOST = 'localhost'
+
+# J'ai mis l'ancienne valeur du HOST en commentaire au cas où 
 #HOST = '0.0.0.0'
 PORT = 1965
 
