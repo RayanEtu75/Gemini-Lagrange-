@@ -6,7 +6,6 @@ import random
 CERT_FILE = 'cert.pem'
 KEY_FILE = 'key.pem'
 HOST = 'localhost'
-
 # J'ai mis l'ancienne valeur du HOST en commentaire au cas où 
 #HOST = '0.0.0.0'
 PORT = 1965
@@ -35,13 +34,15 @@ def bot_move(board):
 
 def render_board(board):
     def symbol(i):
-        return board[i] if board[i] != '_' else str(i + 1)
-
+        return str(i + 1) if board[i] == '_' else ('X' if board[i] == 'X' else 'O')
     lines = []
     for i in range(0, 9, 3):
         row = f"{symbol(i)} | {symbol(i+1)} | {symbol(i+2)}"
         lines.append(row)
-    return '\n'.join(lines)
+    return "\n---+---+---\n".join(lines)
+
+def quitter_partie():
+    return "=> /quit Quitter le jeu 👋\n"
 
 def render_links(board):
     links = ""
@@ -50,6 +51,8 @@ def render_links(board):
             new_board = board[:i] + 'X' + board[i+1:]
             new_board = bot_move(new_board)
             links += f"=> /morpion?board={new_board} Jouer dans la case {i + 1}\n"
+    if not links:
+        links = "=> /morpion Rejouer Rejouer\n"
     return links
 
 def handle_request(connstream):
@@ -70,26 +73,34 @@ def handle_request(connstream):
         board = query.get("board", ["_" * 9])[0]
         winner = check_winner(board)
 
-        body = "# Morpion (Tic-Tac-Toe)\n\n"
-        body += "Tu joues avec : X\n\n"
+        body = "# Morpion (Tic-Tac-Toe) !\n\n"
+        body += "Tu joues avec : X  |  L’ordinateur : O \n\n"
         body += "Plateau actuel :\n\n"
         body += f"```\n{render_board(board)}\n```\n\n"
 
         if winner == 'X':
             body += "🎉 Tu as gagné !\n\n"
             body += "=> /morpion Rejouer\n"
+            body += quitter_partie()
         elif winner == 'O':
             body += "🤖 L’ordinateur a gagné !\n\n"
             body += "=> /morpion Rejouer\n"
+            body += quitter_partie()
         elif winner == 'draw':
             body += "⚖️ Match nul !\n\n"
             body += "=> /morpion Rejouer\n"
+            body += quitter_partie()
         else:
             body += "À toi de jouer :\n\n"
             body += render_links(board)
 
         response = build_response(body)
 
+    elif path == "/quit":
+        body = "# Merci d'avoir joué ! 👋\n\n"
+        response = build_response(body)
+        connstream.send(response.encode('utf-8'))
+        return "QUIT"
     else:
         response = "51 Not found\r\n"
 
@@ -105,7 +116,8 @@ def run_server():
             while True:
                 conn, addr = tls_server.accept()
                 with conn:
-                    handle_request(conn)
-
+                    result = handle_request(conn)
+                    if result == "QUIT":
+                        break
 if __name__ == '__main__':
     run_server()
