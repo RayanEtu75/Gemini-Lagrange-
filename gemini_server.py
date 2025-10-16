@@ -4,8 +4,9 @@ from urllib.parse import urlparse, parse_qs
 import random
 
 CERT_FILE = 'cert.pem'
-KEY_FILE = 'key.rsa'
-HOST = '0.0.0.0'
+KEY_FILE = 'key.pem'
+HOST = 'localhost'
+#HOST = '0.0.0.0'
 PORT = 1965
 
 def build_response(body: str):
