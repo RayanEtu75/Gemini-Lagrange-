@@ -79,7 +79,7 @@ def main():
     require_server_cert()
     ctx = ssl_context()
 
-    # Socket IPv6 dual-stack (couvre IPv4 si le kernel le permet)
+    # Socket IPv6 dual-stack 
     base = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
     try:
         base.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
