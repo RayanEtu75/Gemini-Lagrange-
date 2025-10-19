@@ -1,0 +1,22 @@
+{
+  "id": "0eea5767",
+  "created": "2025-10-19T12:49:56Z",
+  "players": {
+    "X": "3ba1425e14774e64eaaa742f18f3da01a7fec36a009f1bbac8779b5c3ea6570b",
+    "O": null
+  },
+  "turn": "X",
+  "board": [
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  ],
+  "status": "playing",
+  "last_move_ts": null
+}

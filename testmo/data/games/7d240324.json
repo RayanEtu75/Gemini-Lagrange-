@@ -1,0 +1,22 @@
+{
+  "id": "7d240324",
+  "created": "2025-10-19T12:55:44Z",
+  "players": {
+    "X": "6d44ecf91b68859edd513ff9fcb1d28efc6f8504953ba148ca4404df88f62b4b",
+    "O": "ea2acb80bc690d5d96181ad221f675789651f170dfb9539bfb49780c16445545"
+  },
+  "turn": "X",
+  "board": [
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  ],
+  "status": "playing",
+  "last_move_ts": null
+}

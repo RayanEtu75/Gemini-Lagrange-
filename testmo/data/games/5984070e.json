@@ -1,0 +1,22 @@
+{
+  "id": "5984070e",
+  "created": "2025-10-19T12:52:35Z",
+  "players": {
+    "X": "dea551bfe9fca7eddfede4e3e024bee9ca5ed2c8e23b0ae9273f0eaef5de10e5",
+    "O": "ea2acb80bc690d5d96181ad221f675789651f170dfb9539bfb49780c16445545"
+  },
+  "turn": "O",
+  "board": [
+    " ",
+    "X",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  ],
+  "status": "playing",
+  "last_move_ts": "2025-10-19T12:54:05Z"
+}
