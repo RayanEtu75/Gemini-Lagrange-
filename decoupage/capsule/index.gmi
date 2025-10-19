@@ -1,0 +1,5 @@
+# Accueil Gemini (TOFU)
+
+Première visite : votre identité sera enregistrée automatiquement.
+
+=> /ttt Morpion (2 joueurs)
