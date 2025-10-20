@@ -46,7 +46,7 @@ openssl pkcs12 -export -out bob.p12 -inkey bob.key -in bob.crt -passout pass:
 # 6. Nettoie les fichiers temporaires
 rm -f *.csr *.srl
 
-echo "✅ Certificats générés avec succès !"
+echo "Certificats générés avec succès !"
 echo ""
 echo "Fichiers créés :"
 echo "  - ca.crt (à importer comme certificat de confiance dans Lagrange)"
